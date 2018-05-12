@@ -27,7 +27,7 @@ namespace SingleSignOn.Core.Services
             var key = _prefixKey + "_" + user.Username;
 
             MemoryCache.Default.Add(key.ToLower(), user, DateTime.Now.AddMinutes(30));
-            _log.Info("Successfully set " + user.Username + "to Auth Cache");
+            _log.Info("Successfully set " + user.Username + " to Auth Cache with key " + key.ToLower());
         }
 
         public UserDTO Check(string username)
@@ -40,6 +40,6 @@ namespace SingleSignOn.Core.Services
 
             return null;
         }
-        
+
     }
 }
