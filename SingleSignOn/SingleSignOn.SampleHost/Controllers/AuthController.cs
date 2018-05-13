@@ -20,6 +20,7 @@ namespace SingleSignOn.SampleHost.Controllers
 
         public ActionResult Login()
         {
+            // The below code is to perform auto login,  it may or may not need it
             //if (CurrentUser != null)
             //{
             //    var baseUrl = System.Configuration.ConfigurationManager.AppSettings["SingleSignOnAuthServicePath"];
