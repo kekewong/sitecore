@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Caching;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
@@ -19,7 +21,7 @@ namespace SingleSignOn.Test
             var newUser = new UserDTO
             {
                 Id = Guid.NewGuid(),
-                Username = "Test",
+                Username = "Test456",
                 Role = UserRole.Admin
             };
             service.SignIn(newUser);
@@ -41,7 +43,7 @@ namespace SingleSignOn.Test
             var newUser = new UserDTO
             {
                 Id = Guid.NewGuid(),
-                Username = "Test",
+                Username = "Test123",
                 Role = UserRole.Admin
             };
             service.SignIn(newUser);
@@ -49,7 +51,8 @@ namespace SingleSignOn.Test
             var memoryUserData = service.Check(newUser.Username);
             memoryUserData.Username.ShouldBe(newUser.Username);
             memoryUserData.Role.ToString().ShouldBe(newUser.Role.ToString());
-            memoryUserData.Id.ToString().ShouldBe(newUser.Id.ToString());
+            memoryUserData.Id.ShouldBe(newUser.Id);
         }
+
     }
 }

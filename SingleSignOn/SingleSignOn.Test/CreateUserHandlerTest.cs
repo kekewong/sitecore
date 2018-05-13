@@ -24,7 +24,7 @@ namespace SingleSignOn.Test
             
             var testMessage = new CreateUserMessage
             {
-                Username = "Test",
+                Username = "Test789",
                 Password = "Test",
                 Role = UserRole.Admin
             };
